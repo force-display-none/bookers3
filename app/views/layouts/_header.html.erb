@@ -4,34 +4,18 @@
     <% if user_signed_in? %>
       <nav>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/users/#{user.id}">
-            <span class="glyphicon glyphicon-home"></span> Home</a>
-          </li>
-          <li><a href="/users">
-            <span class="glyphicon glyphicon-user"></span> Users</a>
-          </li>
-          <li><a href="">
-            <span class="glyphicon glyphicon-book"></span> Books</a>
-          </li>
-          <li><a href="/users/sign_out" data-method="delete">
-            <span class="glyphicon glyphicon-log-out"></span> Logout</a>
-          </li>
+          <li><%= link_to " Home",  user_path(current_user),      class:"glyphicon glyphicon-home" %></li>
+          <li><%= link_to " Users", users_path,                   class:"glyphicon glyphicon-user" %></li>
+          <li><%= link_to " Books", "#",                          class:"glyphicon glyphicon-book" %></li>
+          <li><%= link_to " Logout", destroy_user_session_path,   class:"glyphicon glyphicon-book", method: :delete %></li>
         </ul>
     <% else %>
       <nav>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/">
-            <span class="glyphicon glyphicon-home"></span> Home</a>
-          </li>
-          <li><a href="/about">
-            <span class="glyphicon glyphicon-link"></span> About</a>
-          </li>
-          <li><a href="/users/sign_up">
-            <span class="glyphicon glyphicon-edit"></span> Sign Up</a>
-          </li>
-          <li><a href="/users/sign_in">
-            <span class="glyphicon glyphicon-log-in"></span> Login</a>
-          </li>
+          <li><%= link_to " Home", root_path,                     class:"glyphicon glyphicon-home" %></li>
+          <li><%= link_to " About", about_path,                   class:"glyphicon glyphicon-link" %></li>
+          <li><%= link_to " Sign Up", new_user_registration_path, class:"glyphicon glyphicon-edit" %></li>
+          <li><%= link_to " Login", new_user_session_path,        class:"glyphicon glyphicon-log-in" %></li>
         </ul>
       </nav>
     <% end %>

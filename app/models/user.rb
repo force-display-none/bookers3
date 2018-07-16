@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  attachment :image
+
   validates_uniqueness_of :name
   validates_presence_of :name
 

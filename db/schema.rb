@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2018_07_15_072615) do
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
     t.string "name", default: "", null: false
+    t.text "introduction", default: ""
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
