@@ -19,7 +19,6 @@ textarea {
   }
 }
 
-
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,6 +42,16 @@ p {
   line-height: 1.7em;
 }
 
+.about {
+  font-size: 20px;
+  display: block;
+  text-align: center;
+  color: #777;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 /* header */
 
 #logo {
@@ -54,11 +63,10 @@ p {
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
   }
 }
-
 
 /* footer */
 
@@ -68,6 +76,6 @@ footer {
   border-top: 1px solid #eaeaea;
   color: #777;
   small {
-  float: right;
+    float: right;
   }
 }
