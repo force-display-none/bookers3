@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'books/index'
+  get 'books/show'
   devise_for :users
   root 'static_pages#top'
   get '/about', to: 'static_pages#about'
