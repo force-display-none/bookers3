@@ -6,6 +6,7 @@ class BooksController < ApplicationController
     user = current_user         #user.idを渡すこと！
     book.user_id = user.id
       if book.save
+        flash[:notice] = "Book created successfully"
         redirect_to book_path(book)
       else
         render 'show'
@@ -14,8 +15,8 @@ class BooksController < ApplicationController
 
   def index
     @book = Book.new
+    @books = Book.all
     @user = current_user
-  	@books = Book.all
   end
 
   def show
@@ -33,10 +34,11 @@ class BooksController < ApplicationController
 
   def update
     book = Book.find(params[:id])
-    if book.update(book_params)
+    if book.update!(book_params)
+      flash[:notice] = "Book updated successfully"
       redirect_to book_path(book)
     else
-      render 'show'
+      render 'index'
     end
   end
 
@@ -51,8 +53,6 @@ class BooksController < ApplicationController
       def book_params
         params.require(:book).permit(:title, :body)
       end
-
-
 
 end
 

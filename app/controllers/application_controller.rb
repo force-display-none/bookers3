@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_user!, except: [:top, :about]
+
   # Viewでアクションごとの条件分岐を綺麗に書く
   before_action :request_path
     def request_path
