@@ -1,0 +1,28 @@
+<% unless @path.is('books#edit') %>
+  <h2>New book</h2>
+<% else %>
+  <h2>Editing Book</h2>
+<% end %>
+
+<%= form_for(book) do |f| %>
+	<h4>Title</h4>
+	<%= f.text_field :title %>
+	<h4>Opinion</h4>
+	<%= f.text_area :body %>
+
+    <% unless @path.is('books#edit') %>
+
+<div>
+    <%= f.submit 'Create Book' %>
+</div>
+
+    <% else %>
+
+<div>
+    <%= f.submit 'Update Book' %><br>
+    <%= link_to "Back", book_path(@book) %> | <%= link_to "Books", books_path %>
+</div>
+
+    <% end %>
+
+<% end %>
