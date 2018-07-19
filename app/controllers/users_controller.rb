@@ -23,8 +23,7 @@ class UsersController < ApplicationController
   def update #エラーを表示するためにインスタンス変数を使っています
   	@user = current_user
   	if @user.update(user_params)
-      flash[:notice] = "User info updated successfully"
-  	  redirect_to user_path(@user.id)
+  	  redirect_to @user, notice: "User info updated successfully"
     else
       render 'edit'
     end

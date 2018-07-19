@@ -6,8 +6,7 @@ class BooksController < ApplicationController
     @user = current_user         #user.idを渡すこと！
     @book.user_id = @user.id
       if @book.save
-        flash[:notice] = "Book created successfully"
-        redirect_to @book
+        redirect_to @book, notice: "Book created successfully"
       else
         @books = @user.books
         render 'users/show'
@@ -36,8 +35,7 @@ class BooksController < ApplicationController
   def update #エラーを表示するためにインスタンス変数を使っています
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      flash[:notice] = "Book updated successfully"
-      redirect_to book_path(@book.id)
+      redirect_to @book, notice: "Book updated successfully"
     else
       render 'edit'
     end
