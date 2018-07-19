@@ -1,4 +1,15 @@
 <% provide(:title, "EditUserPage") %>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h2>User info</h2>
 <%= form_for(@user) do |f| %>
 	<h4>Name</h4>

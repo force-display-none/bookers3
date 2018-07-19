@@ -1,4 +1,5 @@
 <% provide(:title, "EditingBookPage") %>
 <div class="center">
-<%= render 'books/form', book: @book %>
+<%= render 'books/errors_book', book: @book %>
+<%= render 'books/edit_form', book: @book %>
 </div>

@@ -1,5 +1,5 @@
 <h2>User info</h2>
-  <table>
+  <table class="table">
     <tr>
       <%= attachment_image_tag user, :image, fallback: "no_image.jpg", size: "100x100" %>
     </tr>
@@ -11,7 +11,7 @@
 
     <tr>
       <th>introduction</th>
-      <th><%= user.introduction %></th>
+      <th class="word-break"><%= user.introduction %></th>
     </tr>
   </table>
   <div class='row'>

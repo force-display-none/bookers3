@@ -1,15 +1,16 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
 
-  def create
-  	book = Book.new(book_params)
-    user = current_user         #user.idを渡すこと！
-    book.user_id = user.id
-      if book.save
+  def create #エラーを表示するためにインスタンス変数を使っています
+  	@book = Book.new(book_params)
+    @user = current_user         #user.idを渡すこと！
+    @book.user_id = @user.id
+      if @book.save
         flash[:notice] = "Book created successfully"
-        redirect_to book_path(book)
+        redirect_to @book
       else
-        render 'show'
+        @books = @user.books
+        render 'users/show'
       end
   end
 
@@ -32,13 +33,13 @@ class BooksController < ApplicationController
   	end
   end
 
-  def update
-    book = Book.find(params[:id])
-    if book.update!(book_params)
+  def update #エラーを表示するためにインスタンス変数を使っています
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
       flash[:notice] = "Book updated successfully"
-      redirect_to book_path(book)
+      redirect_to book_path(@book.id)
     else
-      render 'index'
+      render 'edit'
     end
   end
 
