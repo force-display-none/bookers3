@@ -1,0 +1,20 @@
+<% book_show.book_comments.each do |book_comment| %>
+<ul>
+  <li>
+  	<div>
+  	  <%= book_comment.user.name %>
+    </div>
+    <div>
+      <%= book_comment.created_at.strftime('%Y/%m/%d') %>
+    </div>
+    <div>
+      <%= book_comment.comment %>
+    </div>
+    <% if book_comment.user == current_user %>
+    <div>                                       <!--２つ変数を渡してあげないとダメ -->
+      <%= link_to "destroy", book_book_comment_path(book_show, book_comment), method: :delete %>
+    </div>
+    <% end %>
+  </li>
+</ul>
+<% end %>

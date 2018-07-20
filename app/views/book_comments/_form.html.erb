@@ -1,0 +1,6 @@
+<%= form_for [book_show, comment] do |f| %>
+<table>
+  <td class="comment"><%= f.text_field :comment %></td>
+<td><%= f.submit "Post Comment", class: "btn btn-lg btn-primary" %></td>
+<% end %>
+</table>
