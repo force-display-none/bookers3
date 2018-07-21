@@ -28,9 +28,7 @@ class BooksController < ApplicationController
 
   def edit
   	@book = Book.find(params[:id])
-  	if @book.user_id != current_user.id
-  	  redirect_to book_path(@book.id)
-  	end
+  	redirect_to book_path(@book.id) unless @book.user_id == current_user.id
   end
 
   def update #エラーを表示するためにインスタンス変数を使っています

@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-9">
       <%= render 'books/book_table', book_show: @book_show %>
-      <p><%= @book_show.book_comments.count %>件コメント</p>
+      <p>コメント<%= @book_show.book_comments.count %>件</p>
       <%= render 'book_comments/form', book_show: @book_show, comment: @comment %>
       <%= render 'book_comments/body', book_show: @book_show %>
     </div>
