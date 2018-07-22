@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :books, only: [:create, :index, :show, :edit, :update, :destroy] do
   	resources :book_comments, only: [:create, :destroy]
   end
+  resources :likes, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

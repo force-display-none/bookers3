@@ -48,6 +48,14 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  def like(user)
+    likes.create(user_id: user.id)
+  end
+
+  def like_destroy(user)
+    likes.find_by(user_id: user.id).destroy
+  end
+
     private
 
       def book_params
