@@ -79,3 +79,5 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'counter_culture', '~> 1.8'
+gem 'kaminari'
+
