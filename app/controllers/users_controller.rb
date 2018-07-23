@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @user = current_user
-    @users = User.all
+    @users = User.search(params[:search])
     @book = Book.new
   end
 
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   	if @user.update(user_params)
   	  redirect_to @user, notice: "User info updated successfully"
     else
-      render 'edit'
+      render :edit
     end
   end
 

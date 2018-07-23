@@ -8,14 +8,14 @@ class BooksController < ApplicationController
       if @book.save
         redirect_to @book, notice: "Book created successfully"
       else
-        @books = @user.books
-        render 'users/show'
+        @books = Book.search(params[:search])
+        render :index
       end
   end
 
   def index
     @book = Book.new
-    @books = Book.all
+    @books = Book.search(params[:search])
     @user = current_user
   end
 
@@ -38,7 +38,7 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       redirect_to @book, notice: "Book updated successfully"
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -48,13 +48,6 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
-  def like(user)
-    likes.create(user_id: user.id)
-  end
-
-  def like_destroy(user)
-    likes.find_by(user_id: user.id).destroy
-  end
 
     private
 
