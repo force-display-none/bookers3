@@ -1,0 +1,9 @@
+<% unless current_user == user %>
+    <span class="like">
+    <% if book_show.like?(current_user) %>
+      <%= render 'likes/like_destroy' %>
+    <% else %>
+      <%= render 'likes/like' %>
+    <% end %>
+  </span>
+<% end %>

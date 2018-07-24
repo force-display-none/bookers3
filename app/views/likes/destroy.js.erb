@@ -1,1 +1,1 @@
-$("#like-btns").html("<%= j(render partial: 'like', locals: { book_show: @book_show, likes: @likes }) %>")
+$("#likes").html("<%= j(render(:partial => 'likes/like')) %>");

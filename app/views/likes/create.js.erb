@@ -1,2 +1,1 @@
-$("#like-btns").html("<%= j(render partial: 'like', locals: { book_show: @book_show, user: @user}) %>")
-// $("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>");
+$("#likes").html("<%= j(render(:partial => 'likes/like_destroy')) %>");

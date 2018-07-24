@@ -27,12 +27,12 @@ class User < ApplicationRecord
   validates :name, length: { in: 2..20 }
   validates :introduction, length: { maximum: 50 }
 
-   def feed
-    following_ids = "SELECT followed_id FROM relationships
-                     WHERE follower_id = :user_id"
-    Book.where("user_id IN (#{following_ids})
-                     OR user_id = :user_id", user_id: id)
-  end
+  #  def feed
+  #   following_ids = "SELECT followed_id FROM relationships
+  #                    WHERE follower_id = :user_id"
+  #   Book.where("user_id IN (#{following_ids})
+  #                    OR user_id = :user_id", user_id: id)
+  # end
 
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
