@@ -13,6 +13,10 @@
       <th>introduction</th>
       <th class="word-break"><%= user.introduction %></th>
     </tr>
+    <tr>
+      <th>books</th>
+      <th><%= user.books.count %></th>
+    </tr>
   </table>
   <% if user == current_user %>
   <div class='row'>
